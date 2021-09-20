@@ -35,9 +35,7 @@
       <!--- Fin del Carrusel: Slider --->
 
       <!--- Banner --->
-      <section >
-
-        <div class="container-fluid banner">
+      <section class="container-fluid banner">
 
           <p>Participa en nuestros eventos, acumula <br> puntos y gana muchos premios</p>
 
@@ -71,31 +69,115 @@
               </div>
             </div>
 
-          </div>
-
-        </div>
+          </div>       
 
       </section>
       <!--- Fin del Banner --->
 
+      <!-- CarViewProduct -->
+        <section >
+
+          <div class="containerCard">
+            <cardProductHome nombre="Camiseta polo negro" imagen = "../assets/camisetapolonegra_adobespark.png" descripcion = "Camisetas tipo polo con logotipo empresa en tallas S, M, L y XL" punto ="850"></cardProductHome>
+            <cardProductHome nombre="Termo pequeño" descripcion = "Termo para bebidas frías de 150ml" punto ="120"></cardProductHome>
+            <cardProductHome nombre="Sombrilla recogible" descripcion = "Sombrilla recogible para llevar consigo en el bolso" punto ="500"></cardProductHome>
+            <div class="container categoria">
+                <div class="content-categoria">
+                  <p> Mas categorias <br><span> Destacadas </span></p>
+                  <button>Ver mas</button>
+                </div>
+            </div>
+          </div>
+
+
+        </section>
+
+        <section class="eventProximo">
+          <eventProximo1></eventProximo1>
+        </section>
+         
+
+      <!-- Fin CarViewProduct -->
   </div>
 
 </template>
 
 <script>
 
-
+import cardProductHome from "../components/cardProductHome.vue";
+import eventProximo1 from "../components/eventProximo.vue";
 export default {
   name: 'Home',
   components: {
-    
+    cardProductHome,
+    eventProximo1
   }
 }
+
+
 </script>
 
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Allerta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arsenal&display=swap');
+
+.eventProximo{
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 1322px;
+    height: 711px;
+}
+
+.home{
+  background: #E4E4E4;
+}
+
+.categoria{
+  border: 0.2px solid #727272;
+  margin: 40px 20px 40px 10px;
+  width: 300px;
+  height: 395px;
+  align-items: center;
+
+    .content-categoria p {
+      font-family: 'Arsenal', sans-serif;
+      color: #727272;
+      width: 300px;
+      padding: 20px 25px 0px 0px;
+      font-size: 24px;
+      line-height: 18px;
+      letter-spacing: 0.15em;
+        span{
+          font-size: 38px;
+          line-height: 38px;
+        }
+  }
+
+  .content-categoria button{
+
+          font-family: 'Arsenal', sans-serif;
+          font-size: 18px;
+          margin-top: 10px ;
+          margin-left: -25px ;
+          padding-left: 50px;
+          padding-right: 50px;
+          padding-top:10px ;
+          padding-bottom:10px ;
+          outline: none;
+          color: #727272;
+          border: none;
+          border-radius: 50px;
+  }
+
+  .content-categoria button:hover{
+    background: #3A4D6417 ;
+    transition: 0.5s;
+    color:#727272;
+  }
+
+}
 
   .banner{
     background-image:url('../assets/Banner1.png') ;
@@ -156,5 +238,17 @@ export default {
     }
     
   }
+
+  .containerCard{
+      background: #F7F7F7;
+      display: grid; 
+      grid-template-columns: 0.5fr 0.2fr 0.5fr 0.5fr; 
+      gap: 0px 0px; 
+      margin-left: 10px;
+      margin-right: 10px;
+      width: 1322px;
+      height: 598px;
+      padding-top: 60px ;
+    }
 
 </style>
