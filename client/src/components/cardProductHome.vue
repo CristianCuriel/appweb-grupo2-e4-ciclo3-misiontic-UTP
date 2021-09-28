@@ -11,19 +11,8 @@
                       </div>
 
                     <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
-                      <div class="one-third">
-
-                      </div>
-
-                      <div class="one-third">
                         <div class="stat">Puntos</div>
                         <div class="stat-value">{{puntos}}</div>
-                      </div>
-
-                      <div class="one-third no-border">
-              
-                      </div>
-
                     </div>
 
                   </div> <!-- end clash-card barbarian-->
@@ -142,10 +131,12 @@ export default{
 
     .clash-card__unit-stats--barbarian {
       background: url(../assets/Rec.png);
+      height: 10%;
       background-size: cover;
       position: relative;
-      bottom: -100px;
+      bottom: -102px;
       transition: 0.5s;
+      //height: 20% ;
     }
 
     .clash-card__unit-stats {
@@ -172,11 +163,90 @@ export default{
         font-size: 28px;
         font-family: 'Baloo Tamma 2', cursive;
       }
+    }
 
-      .no-border {
-        border-right: none;
+    //Responsive mediaQuery
+    @media only screen and (min-width: 1600px) {
+
+      .clash-card {
+        background: white;
+        width: 80%;
+        height: 400px;
+        display: inline-flex;
+        flex-direction: column;
+        position: relative;
+        text-align: center;
+        overflow: auto;
+      }
+
+      .clash-card__unit-stats {
+      display: flex;
+      align-content: flex-start;
+      justify-content: center;
+      align-items: center;
+
+      .stat {
+        position: flex;
+        text-align: center;
+        font-size: 20px;
+      }
+        .stat-value {
+          font-size: 20px;
+        }
+    }
+
+     .clash-card__unit-stats--barbarian {
+       position: relative;
+       top: 33px; 
+       height: 10% ;
+     }
+
+    .clash-card__unit-description {
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 10px;
+      height: 30%;
+      font-size: 20px;
+    }
+
+    .clash-card__unit-name {
+      font-size: 24px;
+      margin-bottom: 5px;
+      margin-top: 15px;
+    }
+
+
+    .clash-card:hover{
+      margin: 5px;
+      z-index: 90;
+      top: -20px;
+      transition: 0.5s;
+
+          .clash-card__image--barbarian {
+            background-size: cover;
+            img {
+              left:60px;
+              top:-10px;
+            }
+          }
+
+          .clash-card__unit-stats--barbarian {
+            background-size: cover;
+            position: relative;
+            top: 45px;
+          }
+
+    }
+
+    .clash-card__image--barbarian {
+      img {
+        position: absolute;
+        left:60px;
+        top:-10px;
       }
     }
+
+    } //Fin del mediaQuery
 
     //Final Card View
 
