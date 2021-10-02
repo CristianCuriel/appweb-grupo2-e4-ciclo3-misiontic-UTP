@@ -98,7 +98,7 @@
              Proximos eventos
           </div>
           
-          <eventProximo1></eventProximo1>
+          <EventProximo></EventProximo>
         
         </section>
          
@@ -110,13 +110,16 @@
 
 <script>
 
-import cardProductHome from "../components/cardProductHome.vue";
-import eventProximo1 from "../components/eventProximo.vue";
+import CardProductHome from "../components/CardProductHome.vue";
+import EventProximo from "../components/EventProximo.vue";
+import CarouselHome from "../components/CarouselHome.vue"
 export default {
   name: 'Home',
   components: {
-    cardProductHome,
-    eventProximo1
+    CardProductHome,
+    EventProximo,
+    CarouselHome
+
   }
 }
 
@@ -227,22 +230,29 @@ export default {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 0px 50px;
+
+  gap: 0px 5%;
   grid-auto-flow: row;
   grid-template-areas:
     ". . . .";
 
     .card{
       align-content: center;
-      height: 70%;
+      //height: 70%;
       border-radius: 0px 50px 50px 0px;
-      padding: 1.25em 0em 0.625em 1.25em;
-      display: grid; 
-      grid-template-columns: 1fr 1fr; 
-      grid-template-rows: 1fr; 
-      gap: 0px 10px; 
-      grid-template-areas: 
-      ". ."; 
+      padding: 1.25em 1em 0.625em 1.25em;
+      //display: grid; 
+      //grid-template-columns: 1fr 1fr; 
+      //grid-template-rows: 1fr; 
+      //gap: 0px 10px; 
+      //grid-template-areas: 
+      display: flex;
+      flex-direction: row;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+
       img {
         width: 4rem;
         height: 4rem;

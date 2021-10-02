@@ -33,13 +33,23 @@
     </div>
   </header>
 </template>
+
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+};
 </script>
+
 <style lang="scss" scoped>
+
+$breackpoint: 768px;
+
 .header {
   padding: 0px 50px;
   display: grid;
+
   grid-template-columns: 0.75fr 1fr 0.5fr;
 
   box-shadow: 0rem 0.5rem 1rem $color-header-shadow;
@@ -49,7 +59,7 @@ export default {};
   }
   li {
     font-family: "Mallanna", sans-serif;
-    font-size: 1.4rem;
+    //font-size: 1.4rem;
     a {
       text-decoration: none;
       color: $color-text-header;
@@ -63,7 +73,22 @@ export default {};
     }
   }
 
+  @media (min-width: $breackpoint) {
+    background: white;
+    padding: 5px 50px;
+    grid-template-areas: "logo navegacion login";
+    grid-template-columns: 0.75fr 1fr 0.5fr;
+    grid-column-gap: 5%;
+  }
+  @media (max-width: $breackpoint) {
+    padding: 2px 10px;
+    grid-template-areas: "logo btnCollapse""login login""navegacion navegacion";
+
+  }
+
+
   .header__navbar-brand {
+    grid-area: logo;
     display: inline-flex;
     justify-content: left;
     .header__navbar-brand-image {
@@ -72,29 +97,30 @@ export default {};
     }
   }
   .header__navbar_nav {
+    grid-area: navegacion;
     display: flex;
-justify-content: right;
+    justify-content: right;
     .header__navbar_links {
       display: flex;
       justify-content: flex-end;
       margin-bottom: 0;
 
       li {
-        margin-left: 50px;
+        margin-left: 20%;
       }
     }
   }
   .header__section-login {
+    grid-area: login;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-left: 40px;
     button {
-      width: 7.5rem;
+      padding: 0 5%;
       margin: 0 10px;
       border-radius: 50rem;
-          font-family: "Mallanna", sans-serif;
-    font-size: 1.3rem;
+      font-family: "Mallanna", sans-serif;
+      
     }
     .header__btn-login {
       border: 2px $color-salmon solid;
@@ -106,6 +132,12 @@ justify-content: right;
       background: white;
       color: $color-salmon;
     }
+  }
+  .header__btn-collapse{
+    grid-area: btnCollapse;
+      @media (min-width: $breackpoint) {
+        display: none;
+  }
   }
 }
 </style>
