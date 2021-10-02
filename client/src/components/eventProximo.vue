@@ -462,9 +462,7 @@ button:hover{
 
 
 @media only screen and (min-width: 1600px) {
-    .container-event{
-        margin-bottom: 40px;
-    } 
+
 }  
 
 </style>

@@ -285,7 +285,7 @@ export default {
 // Media Query
   @media only screen and (min-width: 1600px) {
     .eventProximo{
-      margin-bottom: 40px;
+      min-height: 800px;
     }
 
 
