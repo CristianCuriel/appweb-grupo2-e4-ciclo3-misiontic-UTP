@@ -29,19 +29,19 @@
       :categorias="listaCategoriaEventos"
       :tipos="listaTipoEventos"
       :sucursales="listaSucursales"
-      v-show="showNewFormEvento"
+      v-if="showNewFormEvento"
       @cerrarForm="closeForm"
     ></EventoNewForm>
     <EventoDetail
       :idEvento="eventoSelect"
       :dataEventoId="dataEventSelected"
-      v-show="showDetailEvento"
+      v-if="showDetailEvento"
       @cerrarDetalle="closeDetail"
       @editarEvento="openForm(eventoSelect)"
       @eliminarEvento="deleteEvento(eventoSelect)"
     ></EventoDetail>
     <div class="Seccion-tabla" v-show="!errorConsulta && showListadoEventos">
-      <h2>Tabla de eventos</h2>
+      <h2>Tabla de Eventos</h2>
       <div class="table-responsive">
         <table class="table table-sm">
           <thead>
@@ -63,15 +63,15 @@
               <td>{{ evento.titulo }}</td>
               <td>{{ evento.categoria }}</td>
               <td>{{ evento.valor_puntos }}</td>
-              <td>
-                <button @click="openDetail(evento._id)">
-                  <span class="mdi mdi-eye" alt></span>
+              <td class="d-flex justify-content-center">
+                <button class= "btn" @click="openDetail(evento._id)">
+                  <span class="mdi mdi-eye text-primary fs-4" alt></span>
                 </button>
-                <button @click="openForm(evento._id)">
-                  <span class="mdi mdi-lead-pencil"></span>
+                <button class= "btn btn mx-3" @click="openForm(evento._id)">
+                  <span class="mdi mdi-lead-pencil text-secondary fs-4"></span>
                 </button>
-                <button @click="deleteEvento(evento._id)">
-                  <span class="mdi mdi-trash-can-outline"></span>
+                <button class= "btn" @click="deleteEvento(evento._id)">
+                  <span class="mdi mdi-trash-can-outline text-danger fs-4"></span>
                 </button>
               </td>
             </tr>
@@ -131,7 +131,7 @@ export default {
     openDetail(id) {
       this.eventoSelect = id;
       console.log(id);
-      fetch(process.env.VUE_APP_ROOT_API + "/eventos/full/" + this.eventoSelect)
+      fetch(process.env.VUE_APP_ROOT_API + "/eventos/" + this.eventoSelect)
         //   fetch(
         //     "https://my-json-server.typicode.com/DarkNikT/fakeapi-appweb/eventos/" +
         //       this.eventoSelect

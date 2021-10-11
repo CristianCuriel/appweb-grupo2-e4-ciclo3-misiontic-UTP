@@ -110,7 +110,7 @@ export default {
   methods: {
     actualiza() {
       fetch(process.env.VUE_APP_ROOT_API + "/premios/full/" + this.idPremio)
-        .then((res) => res.json())
+        .then((result) => result.json())
         .then((data) => {
           this.dataPremioSelected = data;
         })

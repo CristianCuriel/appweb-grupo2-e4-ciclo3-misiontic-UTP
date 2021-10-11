@@ -20,6 +20,9 @@ let EventoSchema = new Schema(
         titulo:{
             type: String,
         },
+        descripcion:{
+            type: String,
+        },
         fecha_inicio: {
             type: String,
         },

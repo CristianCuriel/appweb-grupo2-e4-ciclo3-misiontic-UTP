@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <div v-show="showModal" class="modal-mask" @click="$emit('closeRegister')">
-      <div class="modal-wrapper">
+    <div v-show="showModal" class="modal-mask" @click.self="$emit('closeRegister')">
+      <div class="modal-wrapper" @click.self="$emit('closeRegister')">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">

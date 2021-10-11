@@ -25,13 +25,13 @@
     ></PremioForm>
     <PremioNewForm
       :categorias="listaCategoriaPremios"
-      v-show="showNewFormPremio"
+      v-if="showNewFormPremio"
       @cerrarForm="closeForm"
     ></PremioNewForm>
     <PremioDetail
       :idPremio="premioSelect"
       :dataPremioId="dataPremioSelected"
-      v-show="showDetailPremio"
+      v-if="showDetailPremio"
       @cerrarDetalle="closeDetail"
       @editarPremio="openForm(premioSelect)"
       @eliminarPremio="deletePremio(premioSelect)"
@@ -55,19 +55,19 @@
               :key="premio._id"
               :class="premio.visible ? ' table-success' : 'table-warning'"
             >
-              <td>{{ index + 1 }}</td>
-              <td>{{ premio.nombre }}</td>
-              <td>{{ premio.cantidad }}</td>
-              <td>{{ premio.valor_puntos }}</td>
-              <td>
-                <button @click="openDetail(premio._id)">
-                  <span class="mdi mdi-eye" alt></span>
+              <td class="align-middle">{{ index + 1 }}</td>
+              <td class="align-middle">{{ premio.nombre }}</td>
+              <td class="align-middle">{{ premio.cantidad }}</td>
+              <td class="align-middle">{{ premio.valor_puntos }}</td>
+              <td class="d-flex justify-content-center">
+                <button class="btn" @click="openDetail(premio._id)">
+                  <span class="mdi mdi-eye text-primary fs-4" alt></span>
                 </button>
-                <button @click="openForm(premio._id)">
-                  <span class="mdi mdi-lead-pencil"></span>
+                <button class="btn mx-3" @click="openForm(premio._id)">
+                  <span class="mdi mdi-lead-pencil text-secondary fs-4"></span>
                 </button>
-                <button @click="deletePremio(premio._id)">
-                  <span class="mdi mdi-trash-can-outline"></span>
+                <button class="btn" @click="deletePremio(premio._id)">
+                  <span class="mdi mdi-trash-can-outline text-danger fs-4"></span>
                 </button>
               </td>
             </tr>
@@ -123,7 +123,7 @@ export default {
     openDetail(id) {
       this.premioSelect = id;
       console.log(id);
-      fetch(process.env.VUE_APP_ROOT_API + "/premios/full/" + this.premioSelect)
+      fetch(process.env.VUE_APP_ROOT_API + "/premios/" + this.premioSelect)
         //   fetch(
         //     "https://my-json-server.typicode.com/DarkNikT/fakeapi-appweb/eventos/" +
         //       this.premioSelect

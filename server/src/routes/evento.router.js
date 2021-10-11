@@ -263,8 +263,95 @@ eventoRoute.route("/full/:id").get((req, res) => {
 });
 // DETALLE DE PREMIO
 eventoRoute.route("/:id").get((req, res, next) => {
+<<<<<<< HEAD
     data = premiosId[req.params.id]
     res.json(data);
+=======
+    //para que el pipeline en agregate, reconozca el id, se debe convertir al tipo ObjetId
+    let idSearch = mongoose.Types.ObjectId(req.params.id);
+
+    console.log(idSearch);
+    var query = Evento.aggregate(
+        [
+            {
+                $match: {
+                    _id: idSearch,
+                }
+            },
+            {
+                $lookup: {
+                    from: 'categoria_eventos',
+                    localField: 'id_categoria',
+                    foreignField: '_id',
+                    as: 'categoria'
+                }
+            },
+            {
+                $unwind: {
+                    path: "$categoria",
+                }
+            },
+            {
+                $lookup: {
+
+                    from: 'tipo_eventos',
+                    localField: 'id_tipo',
+                    foreignField: '_id',
+                    as: 'tipo'
+
+                }
+            },
+            {
+                $unwind: {
+                    path: "$tipo",
+                }
+            },
+            {
+                $lookup: {
+
+                    from: 'sucursales',
+                    localField: 'id_sucursal',
+                    foreignField: '_id',
+                    as: 'sucursal'
+
+                }
+            },
+            {
+                $unwind: {
+                    path: "$sucursal",
+                }
+            },
+            {
+                $project: {
+                    titulo: '$titulo',
+                    detalle: '$descripcion',
+                    lugar: '$lugar',
+                    categoria: '$categoria.nombre',
+                    sucursal: '$sucursal.nombre',
+                    fecha_inicio: '$fecha_inicio',
+                    fecha_fin: '$fecha_fin',
+                    tipo: "$tipo.tipoEvento",
+                    path_foto: '$path_foto',
+                    cantidad: '$cantidad',
+                    valor_puntos: '$valor_puntos',
+                    disponible: "$disponible",
+                    created: '$created',
+                    updated: '$updated'
+                }
+            }
+        ]
+    );
+    query.exec((error, eventos) => {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(eventos);
+            res.json(eventos)
+        }
+    });
+    console.log(query.created);
+
+>>>>>>> a5883909207c3d28a2ff34fa3ed57ad8e5e1f40b
 })
 
 // CREACIÓN DE UN PREMIO

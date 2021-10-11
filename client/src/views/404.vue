@@ -27,7 +27,7 @@
 
   .notfound-404 {
     position: relative;
-    background: url('../assets/images/404/404.png');
+    background: url("../assets/images/404/404.png");
     width: 200px;
     height: 200px;
     background-size: cover;

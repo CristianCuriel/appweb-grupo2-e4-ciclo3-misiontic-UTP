@@ -1,7 +1,7 @@
 <template>
   <div class="mx-0 Footer px-2">
     <section class="Footer__div-logo pt-3">
-      <img class="Footer__div-logo-img" src="@/assets/logo.png" alt="" />
+      <img class="Footer__div-logo-img" src="@/assets/logo_light.png" alt="" />
     </section>
     <footer class="pt-5">
       <div class="row w-100">
@@ -117,7 +117,7 @@ export default {};
 .Footer {
   background: $color-footer;
   color: white;
-  .Footer__div-logo {
+  &.Footer__div-logo {
     display: flex;
     justify-content: center;
     .Footer__div-logo-img {

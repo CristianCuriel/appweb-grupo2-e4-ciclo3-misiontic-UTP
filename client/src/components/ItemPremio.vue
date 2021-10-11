@@ -1,11 +1,11 @@
 <template>
-  <router-link :to="'/premios/detalle/' + dataPremio._id">
+  <router-link v-if="dataPremio.visible" :to="'/premios/detalle/' + dataPremio._id">
     <div class="ItemPremio card" v-on:click="showAlert()">
       <div class="ItemPremio_img position-relative">
         <!-- Si el componente se encuentra agotado -->
         <h1
           class="fw-bold position-absolute top-0 start-0 fs-4 w-50 py-2 ItemPremio_tituloPromo"
-          v-if="!dataPremio.disponible"
+          v-if="dataPremio.disponible"
         >
           AGOTADO
         </h1>

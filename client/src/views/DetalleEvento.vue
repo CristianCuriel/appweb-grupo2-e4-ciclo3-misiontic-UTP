@@ -28,10 +28,18 @@
         <hr />
 
         <ul>
-          <li>Lugar: <span> {{dataEvento ? dataEvento.lugar : ""}} </span></li>
-          <li>Fecha: <span> {{dataEvento ? this.year : ""}} </span></li>
-          <li>Hora: <span> {{dataEvento ? this.arr[1] : ""}} </span></li>
-          <li>Puntos: <span> {{dataEvento ? dataEvento.valor_puntos : ""}} </span></li>
+          <li>
+            Lugar: <span> {{ dataEvento ? dataEvento.lugar : "" }} </span>
+          </li>
+          <li>
+            Fecha: <span> {{ dataEvento ? this.year : "" }} </span>
+          </li>
+          <li>
+            Hora: <span> {{ dataEvento ? this.arr[1] : "" }} </span>
+          </li>
+          <li>
+            Puntos: <span> {{ dataEvento ? dataEvento.valor_puntos : "" }} </span>
+          </li>
         </ul>
 
         <hr />
@@ -41,9 +49,6 @@
         </div>
       </div>
     </div>
-
-
-
   </div>
 </template>
 

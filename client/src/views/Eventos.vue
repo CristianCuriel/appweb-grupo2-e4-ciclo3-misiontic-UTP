@@ -40,29 +40,32 @@ export default {
   components: { ItemEvento: ItemEvento },
   data() {
     return {
-      mensaje: "hola mundo",
+      consultandoDatos: false,
+      dataVacia: false,
       lista_eventos: [], //inicializamos un array de datos vacío
     };
   },
   mounted() {
+    this.consultandoDatos = true;
     fetch(process.env.VUE_APP_ROOT_API + "/eventos")
       .then((res) => res.json())
       .then((data) => {
+        this.consultandoDatos = false;
         this.lista_eventos = data;
         console.log(this.lista_eventos);
+      })
+      .catch((error) => {
+        this.dataVacia = true;
+        this.consultandoDatos = false;
+        console.log("Error consultando eventos " + error);
       });
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .Eventos {
-  background-image: linear-gradient(
-    -6deg,
-    transparent 86%,
-    $color-salmon 86.1%
-  );
+  background-image: linear-gradient(-6deg, transparent 86%, $color-salmon 86.1%);
 }
 .Eventos__titulo {
   font-family: "Assistant", sans-serif;
@@ -83,7 +86,7 @@ export default {
   font-family: "Assistant", sans-serif;
   font-size: 52px;
 }
-.Eventos__seccion-proximos{
+.Eventos__seccion-proximos {
   display: flex;
   flex-direction: column;
   .c1 {
@@ -95,7 +98,6 @@ export default {
 }
 .Eventos__itemevento-proximo {
   height: 90%;
-  
 }
 .Eventos__seccion-premios {
   padding: 50px 0;

@@ -1,5 +1,5 @@
 <template>
-  <button @click="handleClick">
+  <button v-if="dataEvento.disponible" @click="handleClick">
     <div class="Eventos__item">
       <div class="Eventos__ItemEvento-img">
         <!-- :src="
@@ -7,7 +7,7 @@
           " -->
 
         <img :src="urlServer" alt="" />
-        <h2>Virtual</h2>
+        <h2 class="fs-4">{{ dataEvento.tipo }}</h2>
       </div>
       <div class="Eventos__ItemEvento-text">
         <div class="itemevento-descripcion">{{ dataEvento.titulo }}</div>
@@ -74,6 +74,7 @@ export default {
   methods: {
     handleClick() {
       this.$router.push("/eventos/detalle/" + this.dataEvento._id);
+      window.scrollTo(0, 0);
     },
   },
 };

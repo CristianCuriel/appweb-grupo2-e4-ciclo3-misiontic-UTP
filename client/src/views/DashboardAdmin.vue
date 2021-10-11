@@ -1,26 +1,26 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar px-0">
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="#" v-on:click="setSectionOpen('Inicio')">
+              <a class="nav-link" :class="isOpenSection('Inicio') ? 'active':''" href="#" v-on:click="setSectionOpen('Inicio')">
                 Dashboard
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" v-on:click="setSectionOpen('Usuarios')">
+              <a class="nav-link" :class="isOpenSection('Usuarios') ? 'active':''" href="#" v-on:click="setSectionOpen('Usuarios')">
                 Usuarios
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" v-on:click="setSectionOpen('Premios')">
+              <a class="nav-link" :class="isOpenSection('Premios') ? 'active':''" href="#" v-on:click="setSectionOpen('Premios')">
                 Premios
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" v-on:click="setSectionOpen('Eventos')">
+              <a class="nav-link" :class="isOpenSection('Eventos') ? 'active':''" href="#" v-on:click="setSectionOpen('Eventos')">
                 Eventos
               </a>
             </li>
@@ -28,9 +28,11 @@
         </div>
       </nav>
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-        <CrudEventos v-show="isOpenSection('Eventos')"></CrudEventos>
-        <CrudPremios v-show="isOpenSection('Premios')"></CrudPremios>
-        <DashBoardInicio v-show="isOpenSection('Inicio')"></DashBoardInicio>
+        <CrudEventos v-if="isOpenSection('Eventos') "></CrudEventos>
+        <CrudPremios v-if="isOpenSection('Premios')"></CrudPremios>
+        <DashBoardInicio v-if="isOpenSection('Inicio')">
+          {{ userdata }}
+        </DashBoardInicio>
         <ReporteUsuarios v-show="isOpenSection('Usuarios')"></ReporteUsuarios>
       </main>
     </div>
@@ -41,6 +43,7 @@ import DashBoardInicio from "../components/DashboardInicio.vue";
 import CrudEventos from "../components/CrudEventos.vue";
 import CrudPremios from "../components/CrudPremios.vue";
 import ReporteUsuarios from "../components/ReporteUsuarios.vue";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -56,7 +59,9 @@ export default {
       return section === this.sectionOpen ? true : false;
     },
   },
-  computed: {},
+  computed: {
+    ...mapState(["userdata"]),
+  },
   components: {
     DashBoardInicio,
     CrudEventos,
@@ -68,7 +73,8 @@ export default {
 <style lang="scss" scoped>
 .nav-link {
   &.active {
-    color: #007bff;
+    color: #044182;
+    background: white;
   }
 }
 </style>

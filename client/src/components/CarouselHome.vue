@@ -58,9 +58,9 @@ export default {
   },
 };
 </script>
-
+</script>
 <style scoped lang="scss" >
   .carousel-item{
     height: 600px;
   }
-</style>
+</style> 

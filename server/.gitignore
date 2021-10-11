@@ -1,5 +1,10 @@
 <<<<<<< HEAD
 =======
 // carpeta node
+<<<<<<< HEAD
 >>>>>>> 10b6ce65e581c4b72e799a53251715b5861bdb4a
 node_modules/
+=======
+node_modules/
+.env
+>>>>>>> a5883909207c3d28a2ff34fa3ed57ad8e5e1f40b

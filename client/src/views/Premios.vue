@@ -42,7 +42,7 @@
         </router-link>
       </div>
 
-      <img src="@/assets/images/Premio/Banner1.png" alt="" />
+      <img src="@/assets/images/Premios/Banner1.png" alt="" />
     </div>
   </div>
 </template>
@@ -64,14 +64,15 @@ export default {
         .then((response) => response.json())
         .then((data) => {
           this.dataVacia = false;
+          this.consultarDatos = false;
           this.dataPremios = data;
           console.log(this.dataPremios);
         })
         .catch((error) => {
+          this.consultarDatos = false;
           this.dataVacia = true;
-          console.log("Error" + error);
+          console.log("Error consultando premios" + error);
         });
-      this.consultarDatos = false;
     },
   },
   components: { ItemPremio },

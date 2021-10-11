@@ -16,6 +16,9 @@ const HOST_SERVER = config.HOST+":"+config.PORT;
 const premioAPI = require("./routes/premio.router");
 const eventoAPI = require("./routes/evento.router");
 const sucursalAPI = require("./routes/sucursal.router");
+const userAPI = require("./routes/user.router");
+
+const loginRoute = require("./routes/login.route");
 
 const app = express();
 
@@ -30,13 +33,15 @@ console.log(path.join(__dirname,'../assets/images'));
 app.use('/static/images', express.static(path.join(__dirname,'../assets/images')));
 
 
+
 // API  Rutas
 app.use("/api/premios", premioAPI);
 app.use("/api/eventos", eventoAPI);
 app.use("/api/sucursales", sucursalAPI);
+app.use("/users", userAPI);
 
-
-
+//Logueo
+app.use("/login", loginRoute)
 
 const server = app.listen(port, () => {
     console.log("Connected to port " + port);
