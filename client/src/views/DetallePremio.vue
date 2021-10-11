@@ -138,7 +138,7 @@ export default {
          this.urlServer = process.env.VUE_APP_ROOT;
 
         axios
-           .get(this.urlServer + this.dataEvento.path_foto, {
+           .get(this.urlServer + this.dataPremios.path_foto, {
              responseType: "arraybuffer",
            })
           .then((response) => {

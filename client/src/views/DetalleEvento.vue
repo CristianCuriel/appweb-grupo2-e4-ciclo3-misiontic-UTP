@@ -63,8 +63,6 @@ export default {
       .then((data) => {
 
         this.dataEvento = data[0];
-        console.log(this.dataEvento);
-        console.log(this.dataEvento.fecha_inicio);
         this.arr   = this.dataEvento.fecha_inicio.split('T');
         this.year  = this.arr[0].split("-").reverse().toString().replace(/,/g,'/')
         console.log(this.year)
