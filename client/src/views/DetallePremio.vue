@@ -69,7 +69,7 @@
           </div>
 
           <div class="puntos">
-            Puntos: {{ dataPremios ? dataPremios.valor_puntos : "" }}
+            Puntos: <strong class = "px-2"> {{ dataPremios ? dataPremios.valor_puntos : "" }} </strong>
           </div>
 
           <div class="envio">
@@ -163,7 +163,7 @@ export default {
       .then((res) => res.json())
       .then((data) => {
         this.dataPremios = data[0];
-        console.log(this.dataPremios);
+        //console.log(this.dataPremios);
 
         //carga de imagen
         this.urlServer = process.env.VUE_APP_ROOT;
@@ -271,7 +271,7 @@ export default {
 
   .detalle-premio .puntos {
     font-family: "Abel", normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.125em;
     display: flex;
     align-items: center;
@@ -284,7 +284,7 @@ export default {
     display: flex;
     flex-direction: row;
     font-family: "Abel", normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.125em;
     color: #8888;
     margin-left: 10px;
@@ -293,7 +293,7 @@ export default {
 
   .detalle-premio .color {
     font-family: "Abel", normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.125em;
     display: flex;
     align-items: center;
@@ -304,7 +304,7 @@ export default {
 
   .detalle-premio .color span {
     font-family: "ABeeZee", normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.0625em;
     display: flex;
     align-items: center;
@@ -322,7 +322,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     font-family: "Abel", normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.125em;
     color: #000;
     margin-left: 10px;
@@ -330,7 +330,7 @@ export default {
 
   .detalle-premio .cant p #unit {
     font-family: "ABeeZee", normal;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.125em;
     color: #000;
     margin-left: 5px;
@@ -338,7 +338,7 @@ export default {
 
   .detalle-premio .cant p #dispo {
     font-family: "Abel", normal;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 0.9375em;
     color: #8888;
     margin-left: 5px;
@@ -412,8 +412,8 @@ export default {
 
   .caracteristica-product .body-caracteristicas {
     font-family: "Abel", normal;
-    font-size: 14px;
-    line-height: 17.8px;
+    font-size: 20px;
+    line-height: 1.2em;
     text-align: justify;
   }
 
@@ -434,7 +434,7 @@ export default {
 
   .descripcion .body-descripcion {
     font-family: "Abel", normal;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 17.8px;
     text-align: justify;
   }
