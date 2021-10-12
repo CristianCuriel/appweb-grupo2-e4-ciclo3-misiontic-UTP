@@ -1,6 +1,15 @@
 <template>
 
   <div class="container">
+    <div v-show="!dataEvento ? true : false" class="container-loading">
+      <grid-loader
+        class="Spinner__loading"
+        :loading="dataEvento ? false : true"
+        :color="colorLoading"
+        size="40px"
+        style="background-color: white"
+      ></grid-loader>
+    </div>
 
     <div v-if="!dataEvento ? false : true" class="container-section1">
 
@@ -110,6 +119,9 @@
 
 <script>
 import axios from "axios";
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
+import GridLoader from "vue-spinner/src/GridLoader.vue";
+
 export default {
   data() {
     return {
@@ -118,6 +130,7 @@ export default {
       colorLoading: "#242f3d",
     };
   },
+  components: { PulseLoader, GridLoader },
   mounted() {
     //para hacer que el scroll esté arriba
     window.scrollTo(0, 0);
