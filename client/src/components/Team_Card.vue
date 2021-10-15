@@ -1,7 +1,8 @@
 <template>
     <!-- Team-->
+    <!-- :src="miembro.imagen"  -->
         <div class="team-member">
-            <img class="mx-auto rounded-circle" :src="miembro.imagen" alt="..." />
+            <img class="mx-auto rounded-circle" src="../assets/images/team/user.png" alt="..." />
             <h4 class="pt-3" style="font-size: 26px;">{{ miembro.nombre }}</h4>
             <p class="text-muted" style="font-size: 20px;" >{{ miembro.rol }}</p>
             <a class="btn btn-dark btn-social mx-2" href="#!"><span class="mdi mdi-twitter"></span></a>
