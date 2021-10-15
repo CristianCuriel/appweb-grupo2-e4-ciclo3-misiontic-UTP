@@ -43,6 +43,24 @@
       </div>
     </div>
 
+    <!-- TEAM -->
+    <div class="page-section bg-light" id="team">
+      <div class="container">
+        <div class="text-center py-5">
+          <h2 class="section-heading text-uppercase" id="text-team-header">Nuestro equipo</h2>
+          <h3 class="section-subheading text-muted" id="text-team">Conoce a las personas que con esfuerzo y dedicacion llevaron a cabo este increible proyecto.</h3>
+        </div>
+        
+        <div class="row container-team">
+          <div class="col-lg-4" v-for="(item, index) of team" :key="index">
+            <Team_Card :miembro="item"></Team_Card>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
     <div class="container-contactenos">
       <div class="row">
         <div class="col">
@@ -111,14 +129,74 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
+
+<script>
+import Team_Card from '../components/Team_Card.vue'
+
+export default {
+  name: "About",
+  components: {
+    Team_Card
+  },
+
+  data(){
+    return {
+      team: [
+        {
+          codigo: 1,
+          nombre: "Laura Motta",
+          rol: "Scrum Master",
+          imagen: "../assets/images/team/user.png",
+        },
+        {
+          codigo: 2,
+          nombre: "Javier",
+          rol: "Product Owner",
+          imagen: "../assets/images/team/user.png",
+        },
+        {
+          codigo: 3,
+          nombre: "Fabian Guevara",
+          rol: "Desarrollador backend",
+          imagen: "../assets/images/team/user.png",
+        },
+        {
+          codigo: 4,
+          nombre: "Cristian Curiel",
+          rol: "Desarrollador frontend",
+          imagen: "../assets/images/team/user.png",
+        },
+      ],
+    };
+  },
+
+};
+</script>
+
 
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Allerta&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@600&display=swap");
+#text-team-header{
+    font-family: "Allerta", normal;
+    font-size: 30px;
+    color: #ff5a60;
+}
+
+#text-team{
+  font-size: 24px;
+}
+
+.container-team{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 
 .container-fluid {
   background: #f2f2f2;
